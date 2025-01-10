@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>贪吃蛇游戏</title>
-    <style>
-        body {
+     <style>        body {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* 确保内容从顶部开始 */
             height: 100vh;
             background-color: #000;
             margin: 0;
@@ -17,6 +16,10 @@
         }
         canvas {
             border: 1px solid #fff;
+            width: 100%;
+            height: 100%;
+            max-width: 600px; /* 设置最大宽度 */
+            max-height: 600px; /* 设置最大高度 */
         }
         .danmu {
             position: absolute;
@@ -38,7 +41,7 @@
         }
         .controls {
             position: absolute;
-            bottom: 10px;
+            bottom: 70px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -57,6 +60,19 @@
         .controls .horizontal {
             display: flex;
             justify-content: center;
+        }
+        @media (max-width: 600px) {
+            .controls button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* 设置最大宽度 */
+            max-height: 600px; /* 设置最大高度 */
         }
     </style>
 </head>
@@ -286,7 +302,7 @@
         }
 
         // Call draw function every 200 ms to reduce sensitivity
-        let game = setInterval(draw, 200);
+        let game = setInterval(draw, 300);
     </script>
 </body>
 </html>
